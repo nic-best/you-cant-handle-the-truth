@@ -74,6 +74,11 @@ public class HandleTruthTest {
         expectedWordMaps.add("CrAzy=2crazy=1wow=1WoW=1wOW=1");
         expectedSortedMaps.add("2=[CrAzy]1=[crazy, wow, WoW, wOW]");
 
+        //test ordering
+        testStrings.add("wordone wordtwo wordtwo wordthree");
+        expectedWordMaps.add("wordthree=1wordtwo=2wordone=1");
+        expectedSortedMaps.add("2=[wordtwo]1=[wordthree, wordone]");
+
 
         for (int i = 0; i < testStrings.size(); i++) {
             ArrayList<AbstractMap> mapList = HandleTruth.wordCount(testStrings.get(i));
