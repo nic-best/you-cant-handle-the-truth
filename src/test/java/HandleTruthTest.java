@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.*;
+import static org.junit.Assert.*;
 
 public class HandleTruthTest {
     @Test
@@ -22,4 +23,28 @@ public class HandleTruthTest {
 
     }
 
+
+    //this tests that the casts on the maps are working correctly, as well as the iteration is able to retrieve items correctly from the lists
+    @Test
+    public void testMapIteration(){
+        String msg = "hi hi hi wow wow boo wow";
+        ArrayList<AbstractMap> mapList = HandleTruth.wordCount(msg);
+        HashMap<String, Integer> wordMap = (HashMap<String, Integer>) mapList.get(0);
+        TreeMap<Integer, Set<String>> sortedMap = (TreeMap<Integer, Set<String>>) mapList.get(1);
+
+
+        String actualWordMap = "";
+        for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
+            actualWordMap+=entry;
+        }
+        String expectedWordMap = "hi=3boo=1wow=3";
+        assertEquals(expectedWordMap, actualWordMap);
+
+        String actualSortedMap = "";
+        for (Map.Entry<Integer, Set<String>> entry : sortedMap.entrySet()) {
+            actualSortedMap+=entry;
+        }
+        String expectedSortedMap = "3=[hi, wow]1=[boo]";
+        assertEquals(expectedSortedMap, actualSortedMap);
+    }
 }
