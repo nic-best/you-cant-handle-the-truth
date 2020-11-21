@@ -47,4 +47,36 @@ public class HandleTruthTest {
         String expectedSortedMap = "3=[hi, wow]1=[boo]";
         assertEquals(expectedSortedMap, actualSortedMap);
     }
+
+    @Test
+    public void tests() {
+        ArrayList<String> testStrings = new ArrayList<String>();
+        ArrayList<String> expectedWordMaps = new ArrayList<String>();
+        ArrayList<String> expectedSortedMaps = new ArrayList<String>();
+
+        //test case one word
+        testStrings.add("wow");
+        expectedWordMaps.add("wow=1");
+        expectedSortedMaps.add("1=[wow]");
+
+
+        for (int i = 0; i < testStrings.size(); i++) {
+            ArrayList<AbstractMap> mapList = HandleTruth.wordCount(testStrings.get(i));
+            HashMap<String, Integer> wordMap = (HashMap<String, Integer>) mapList.get(0);
+            TreeMap<Integer, Set<String>> sortedMap = (TreeMap<Integer, Set<String>>) mapList.get(1);
+
+
+            String actualWordMap = "";
+            for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
+                actualWordMap+=entry;
+            }
+            assertEquals(expectedWordMaps.get(i), actualWordMap);
+
+            String actualSortedMap = "";
+            for (Map.Entry<Integer, Set<String>> entry : sortedMap.entrySet()) {
+                actualSortedMap+=entry;
+            }
+            assertEquals(expectedSortedMaps.get(i), actualSortedMap);
+        }
+    }
 }
