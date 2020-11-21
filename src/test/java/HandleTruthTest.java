@@ -54,6 +54,11 @@ public class HandleTruthTest {
         ArrayList<String> expectedWordMaps = new ArrayList<String>();
         ArrayList<String> expectedSortedMaps = new ArrayList<String>();
 
+        //test case empty string
+        testStrings.add("");
+        expectedWordMaps.add("");
+        expectedSortedMaps.add("");
+
         //test case one word
         testStrings.add("wow");
         expectedWordMaps.add("wow=1");

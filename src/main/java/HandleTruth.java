@@ -32,6 +32,8 @@ public class HandleTruth {
         for (Map.Entry<Integer, Set<String>> entry : sortedMap.entrySet()) {
             System.out.println(entry);
         }
+
+        //return values for debug
         ArrayList<AbstractMap> mapList = new ArrayList<>();
         mapList.add(wordMap);
         mapList.add(sortedMap);
