@@ -3,6 +3,20 @@ import java.util.*;
 public class HandleTruth {
     public static ArrayList<AbstractMap> wordCount(String msg) {
 
+        //if we are given an empty string, return empty debug lists
+        /*
+        this prevents the rest of the method being run, which would print the incorrect information due to
+        regex functionality in msg.split
+         */
+        if(msg.length()==0){
+            ArrayList<AbstractMap> mapList = new ArrayList<>();
+            HashMap<String, Integer> wordMap = new HashMap<>();
+            TreeMap<Integer, Set<String>> sortedMap = new TreeMap<>(Collections.reverseOrder());
+            mapList.add(wordMap);
+            mapList.add(sortedMap);
+            return mapList;
+        }
+
         // split the message into word set
         String[] words = msg.split(" ");
 
