@@ -64,6 +64,16 @@ public class HandleTruthTest {
         expectedWordMaps.add("wow=1");
         expectedSortedMaps.add("1=[wow]");
 
+        //test case sensitivity
+        testStrings.add("wow WoW wOW");
+        expectedWordMaps.add("wow=1WoW=1wOW=1");
+        expectedSortedMaps.add("1=[wow, WoW, wOW]");
+
+        //test case sensitivity multiple
+        testStrings.add("wow WoW wOW crazy CrAzy CrAzy");
+        expectedWordMaps.add("CrAzy=2crazy=1wow=1WoW=1wOW=1");
+        expectedSortedMaps.add("2=[CrAzy]1=[crazy, wow, WoW, wOW]");
+
 
         for (int i = 0; i < testStrings.size(); i++) {
             ArrayList<AbstractMap> mapList = HandleTruth.wordCount(testStrings.get(i));
