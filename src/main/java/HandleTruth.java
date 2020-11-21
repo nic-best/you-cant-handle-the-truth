@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class HandleTruth {
-    public static void wordCount(String msg) {
+    public static ArrayList<AbstractMap> wordCount(String msg) {
 
         // split the message into word set
         String[] words = msg.split(" ");
@@ -32,5 +32,9 @@ public class HandleTruth {
         for (Map.Entry<Integer, Set<String>> entry : sortedMap.entrySet()) {
             System.out.println(entry);
         }
+        ArrayList<AbstractMap> mapList = new ArrayList<>();
+        mapList.add(wordMap);
+        mapList.add(sortedMap);
+        return mapList;
     }
 }
