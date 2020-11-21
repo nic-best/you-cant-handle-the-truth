@@ -35,6 +35,7 @@ public class HandleTruthTest {
     @Test
     public void testNullException(){
         String input = null;
+        //assertThrows, the () -> means that whatever is in the scope after the -> is what should throw the exception
         assertThrows(NullPointerException.class, () -> HandleTruth.wordCount(input));
     }
 
