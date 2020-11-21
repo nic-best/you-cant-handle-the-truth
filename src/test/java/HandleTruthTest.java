@@ -31,6 +31,13 @@ public class HandleTruthTest {
         assertEquals(expectedSortedMap, actualSortedMap);
     }
 
+    //test for exception: https://stackoverflow.com/questions/40268446/junit-5-how-to-assert-an-exception-is-thrown
+    @Test
+    public void testNullException(){
+        String input = null;
+        assertThrows(NullPointerException.class, () -> HandleTruth.wordCount(input));
+    }
+
     @Test
     public void tests() {
         ArrayList<String> testStrings = new ArrayList<String>();
